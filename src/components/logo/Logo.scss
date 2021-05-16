@@ -1,0 +1,23 @@
+@import "src/sass/variables";
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  width: 775px;
+  margin: 70px 0 65px;
+
+  &__text {
+    font-size: 102px;
+    line-height: 90px;
+    font-weight: bold;
+    color: $base-weak;
+
+    &--left {
+      text-align: left;
+    }
+
+    &--right {
+      text-align: right;
+    }
+  }
+}
