@@ -1,0 +1,8 @@
+@import "src/sass/variables";
+
+.main-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: no-repeat left bottom url("../../assets/Academy-Weather forecast-Bg-buttom.png"), no-repeat right top url("../../assets/Academy-Weather forecast-Bg-up-1.png"), $accent;
+}
