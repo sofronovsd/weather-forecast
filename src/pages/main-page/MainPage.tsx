@@ -5,7 +5,9 @@ const MainPage = () => {
     <>
       <header>Weather forecast</header>
       <main></main>
-      <footer>C ЛЮБОВЬЮ ОТ MERCURY DEVELOPMENT</footer>
+      <footer>
+        <span className="text text--small text--weak">C ЛЮБОВЬЮ ОТ MERCURY DEVELOPMENT</span>
+      </footer>
     </>
   )
 }
