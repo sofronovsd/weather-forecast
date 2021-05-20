@@ -1,4 +1,4 @@
-interface DailyForecast {
+export interface DailyForecast {
   daily: DayForecast[]
 }
 
@@ -22,7 +22,6 @@ export const getHistoricalWeather = async (lat: number, lon: number, time: numbe
   ).then(res => res.json())
 
   if (result) {
-    console.log('result', result)
     return result
   } else {
     throw new Error('Cannot fetch historical weather')
@@ -35,7 +34,6 @@ export const getWeatherForecast = async (lat: number, lon: number): Promise<Dail
   ).then(res => res.json())
 
   if (result) {
-    console.log('result', result)
     return result
   } else {
     throw new Error('Cannot fetch forecast')

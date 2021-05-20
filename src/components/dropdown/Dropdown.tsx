@@ -1,26 +1,54 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import classNames from 'classnames'
+
+import './Dropdown.scss'
 
 type DropdownProps = {
   placeholder?: string
   options: any[]
   className?: string
+  handleSelect: (option: any) => void
+  disabled?: boolean
 }
 
-const Dropdown = ({ placeholder, options, className }: DropdownProps) => {
-  const selectStyles = classNames(className, 'text', 'text--secondary')
+const Dropdown = ({ placeholder, options, className, handleSelect, disabled }: DropdownProps) => {
+  const [selected, setSelected] = useState()
+  const dropdownElement = useRef<HTMLButtonElement>(null)
+  const optionsListElement = useRef<HTMLDivElement>(null)
+
+  const handleSelectOption = (option: any) => {
+    handleSelect(option)
+    setSelected(option.name)
+    dropdownElement.current?.blur()
+  }
+
+  const handleFocus = () => {
+    optionsListElement.current?.classList.add('dropdown__option-list--visible')
+  }
+
+  const handleBlur = () => {
+    optionsListElement.current?.classList.remove('dropdown__option-list--visible')
+  }
+
+  const selectStyles = classNames(className, 'dropdown', 'text', 'text--secondary')
 
   return (
-    <select className={selectStyles}>
-      {placeholder && (
-        <option selected hidden>
-          {placeholder}
-        </option>
-      )}
-      {options.map(option => (
-        <option key={option.name}>{option.name}</option>
-      ))}
-    </select>
+    <button
+      className={selectStyles}
+      ref={dropdownElement}
+      onFocus={handleFocus}
+      onBlur={handleBlur}
+      disabled={disabled}
+    >
+      {selected || placeholder}
+      <div className="dropdown__option-list" ref={optionsListElement}>
+        {options.map(option => (
+          <div key={option.name} onClick={() => handleSelectOption(option)}>
+            {option.name}
+          </div>
+        ))}
+      </div>
+    </button>
   )
 }
 
