@@ -3,6 +3,7 @@ import React from 'react'
 import './MainPage.scss'
 import Logo from '../../components/logo/Logo'
 import Card from '../../components/card/Card'
+import WeeklyForecastCard from '../../components/weekly-forecast-card/WeeklyForecastCard'
 
 const MainPage = () => {
   return (
@@ -11,7 +12,7 @@ const MainPage = () => {
         <Logo />
       </header>
       <main className="main-page__main">
-        <Card />
+        <WeeklyForecastCard />
         <Card />
       </main>
       <footer className="main-page__footer">
