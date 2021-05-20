@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Card from '../card/Card'
-import cities from './cities'
+import cities from '../../assets/cities'
 import Dropdown from '../dropdown/Dropdown'
 
 import mockImage from '../../assets/Academy-Weather-bg160.svg'

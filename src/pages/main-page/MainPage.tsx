@@ -1,9 +1,10 @@
 import React from 'react'
 
-import './MainPage.scss'
 import Logo from '../../components/logo/Logo'
-import Card from '../../components/card/Card'
 import WeeklyForecastCard from '../../components/weekly-forecast-card/WeeklyForecastCard'
+import DateForecastCard from '../../components/date-forecast-card/DateForecastCard'
+
+import './MainPage.scss'
 
 const MainPage = () => {
   return (
@@ -13,7 +14,7 @@ const MainPage = () => {
       </header>
       <main className="main-page__main">
         <WeeklyForecastCard />
-        <Card />
+        <DateForecastCard />
       </main>
       <footer className="main-page__footer">
         <span className="text text--small text--weak">C ЛЮБОВЬЮ ОТ MERCURY DEVELOPMENT</span>

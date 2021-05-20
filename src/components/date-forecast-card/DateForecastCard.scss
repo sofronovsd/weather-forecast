@@ -1,0 +1,22 @@
+.date-forecast-card {
+  &__header {
+    padding-bottom: 5px;
+  }
+  &__mock-image {
+    width: 160px;
+    height: 160px;
+    margin-bottom: 28px;
+  }
+  &__image-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 60px auto 0;
+  }
+  &__inputs-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+}
