@@ -3,7 +3,7 @@
 .weather-card {
   background: $accent;
   width: 100%;
-  height: 238px;
+  min-height: 238px;
   position: relative;
   display: flex;
   justify-content: center;

@@ -20,5 +20,13 @@
     justify-content: space-between;
     margin-top: 20px;
     overflow: visible;
+
+    @media screen and (max-width: 760px) {
+      flex-direction: column;
+
+      button:first-child {
+        margin-bottom: 24px;
+      }
+    }
   }
 }

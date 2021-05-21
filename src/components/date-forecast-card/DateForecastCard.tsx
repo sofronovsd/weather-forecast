@@ -80,7 +80,7 @@ const DateForecastCard = () => {
         ) : (
           <>
             <img src={mockImage} className="date-forecast-card__mock-image" alt="mocked weather" />
-            <span className="text text--secondary text--bold">
+            <span className="text text--secondary text--bold text--center">
               Fill in all the fields and the weather will be displayed
             </span>
           </>

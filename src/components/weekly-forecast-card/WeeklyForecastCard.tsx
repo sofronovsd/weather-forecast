@@ -88,32 +88,37 @@ const WeeklyForecastCard = () => {
       />
       <div className="weekly-forecast-card__image-container">
         {isForecast ? (
-          <div className="weekly-forecast-card__forecast-container">
+          <>
             <img className={leftArrowStyles} src={arrowLeft} onClick={handleLeftArrowClick} alt="left" />
             <img className={rightArrowStyles} src={arrowRight} onClick={handleRightArrowClick} alt="left" />
-            <WeatherCard
-              icon={forecast.daily[index].weather[0].icon}
-              temp={forecast.daily[index].temp.max}
-              date={forecast.daily[index].dt}
-              iconClassName="weekly-forecast-card__weather-icon"
-            />
-            <WeatherCard
-              icon={forecast.daily[index + 1].weather[0].icon}
-              temp={forecast.daily[index + 1].temp.max}
-              date={forecast.daily[index + 1].dt}
-              iconClassName="weekly-forecast-card__weather-icon"
-            />
-            <WeatherCard
-              icon={forecast.daily[index + 2].weather[0].icon}
-              temp={forecast.daily[index + 2].temp.max}
-              date={forecast.daily[index + 2].dt}
-              iconClassName="weekly-forecast-card__weather-icon"
-            />
-          </div>
+            <div className="weekly-forecast-card__forecast-container">
+              <WeatherCard
+                icon={forecast.daily[index].weather[0].icon}
+                temp={forecast.daily[index].temp.max}
+                date={forecast.daily[index].dt}
+                iconClassName="weekly-forecast-card__weather-icon"
+                className="weekly-forecast-card__weather-card"
+              />
+              <WeatherCard
+                icon={forecast.daily[index + 1].weather[0].icon}
+                temp={forecast.daily[index + 1].temp.max}
+                date={forecast.daily[index + 1].dt}
+                iconClassName="weekly-forecast-card__weather-icon"
+                className="weekly-forecast-card__weather-card"
+              />
+              <WeatherCard
+                icon={forecast.daily[index + 2].weather[0].icon}
+                temp={forecast.daily[index + 2].temp.max}
+                date={forecast.daily[index + 2].dt}
+                iconClassName="weekly-forecast-card__weather-icon"
+                className="weekly-forecast-card__weather-card"
+              />
+            </div>
+          </>
         ) : (
           <>
             <img src={mockImage} className="weekly-forecast-card__mock-image" alt="mocked weather" />
-            <span className="text text--secondary text--bold">
+            <span className="text text--secondary text--bold text--center">
               Fill in all the fields and the weather will be displayed
             </span>
           </>

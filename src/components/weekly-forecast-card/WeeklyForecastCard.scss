@@ -22,6 +22,7 @@
     margin: 60px auto 0;
     width: 100%;
     overflow: visible;
+    position: relative;
   }
 
   &__forecast-container {
@@ -29,8 +30,12 @@
     grid-template-columns: 1fr 1fr 1fr;
     grid-column-gap: 10px;
     width: 100%;
-    position: relative;
-    overflow: visible;
+    overflow: hidden;
+    max-height: 260px;
+
+    @media screen and (max-width: 760px) {
+      grid-template-columns: 1fr;
+    }
   }
 
   &__weather-icon {
@@ -47,15 +52,28 @@
 
     &--left {
       left: -30px;
+
+      @media screen and (max-width: 760px) {
+        left: -25px;
+      }
     }
 
     &--right {
       right: -30px;
+
+      @media screen and (max-width: 760px) {
+        right: -25px;
+      }
     }
 
     &--disabled {
       cursor: auto;
       opacity: 0.4;
     }
+  }
+
+  &__weather-card {
+    min-width: 174px;
+    min-height: 260px !important;
   }
 }

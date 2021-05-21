@@ -1,7 +1,8 @@
 @import "src/sass/variables";
 
 .date-picker {
-  width: 252px;
+  max-width: 252px;
+  width: 100%;
   height: 48px;
   background: no-repeat right .7em top 50% url("../../assets/calendar.svg") $secondary-02;
   border: 2px solid $secondary-02;
