@@ -29,22 +29,22 @@ interface CurrentWeather {
 export const getHistoricalWeather = async (lat: number, lon: number, time: number): Promise<HistoricalWeather> => {
   const result = await fetch(
     `https://api.openweathermap.org/data/2.5/onecall/timemachine?lat=${lat}&lon=${lon}&dt=${time}&units=metric&appid=${process.env.REACT_APP_WEATHER_API_KEY}`
-  ).then(res => res.json())
+  )
 
-  if (result) {
-    return result
+  if (result.ok) {
+    return result.json()
   } else {
     throw new Error('Cannot fetch historical weather')
   }
 }
 
 export const getWeatherForecast = async (lat: number, lon: number): Promise<DailyForecast> => {
-  const result: DailyForecast = await fetch(
+  const result = await fetch(
     `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&exclude=current,minutely,hourly,alerts&appid=${process.env.REACT_APP_WEATHER_API_KEY}`
-  ).then(res => res.json())
+  )
 
-  if (result) {
-    return result
+  if (result.ok) {
+    return result.json()
   } else {
     throw new Error('Cannot fetch forecast')
   }

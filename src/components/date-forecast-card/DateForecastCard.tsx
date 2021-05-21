@@ -41,9 +41,10 @@ const DateForecastCard = () => {
           .getTime() / 1000
       getHistoricalWeather(city.latitude, city.longitude, formattedDate)
         .then(res => {
-          console.log('result', res)
-          // const historicalWeather = res.current
           setForecast(res)
+        })
+        .catch(e => {
+          console.log('Error:', e.message)
         })
         .finally(() => {
           setLoading(false)

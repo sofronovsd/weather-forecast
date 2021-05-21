@@ -45,20 +45,16 @@ const WeeklyForecastCard = () => {
       setLoading(true)
       getWeatherForecast(city.latitude, city.longitude)
         .then(res => {
-          console.log('result', res)
           setForecast(res)
+        })
+        .catch(e => {
+          console.log('Error:', e.message)
         })
         .finally(() => {
           setLoading(false)
         })
     }
   }, [city])
-
-  useEffect(() => {
-    if (forecast.daily.length > 0) {
-      console.log('forecast', forecast)
-    }
-  }, [forecast])
 
   const isForecast = useMemo(() => {
     return forecast.daily.length > 0
