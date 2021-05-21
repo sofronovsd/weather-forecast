@@ -16,9 +16,19 @@ interface Temperature {
   max: number
 }
 
-export const getHistoricalWeather = async (lat: number, lon: number, time: number) => {
+export interface HistoricalWeather {
+  current: CurrentWeather
+}
+
+interface CurrentWeather {
+  dt: number
+  weather: Weather[]
+  temp: number
+}
+
+export const getHistoricalWeather = async (lat: number, lon: number, time: number): Promise<HistoricalWeather> => {
   const result = await fetch(
-    `https://api.openweathermap.org/data/2.5/onecall/timemachine?lat=${lat}&lon=${lon}&dt=${time}&appid=${process.env.REACT_APP_WEATHER_API_KEY}`
+    `https://api.openweathermap.org/data/2.5/onecall/timemachine?lat=${lat}&lon=${lon}&dt=${time}&units=metric&appid=${process.env.REACT_APP_WEATHER_API_KEY}`
   ).then(res => res.json())
 
   if (result) {

@@ -5,9 +5,10 @@ import './DatePicker.scss'
 type DatePickerProps = {
   placeholder?: string
   handleSelect: (date: string) => void
+  disabled?: boolean
 }
 
-const DatePicker = ({ placeholder, handleSelect }: DatePickerProps) => {
+const DatePicker = ({ placeholder, handleSelect, disabled }: DatePickerProps) => {
   const [value, setValue] = useState('')
 
   const handleChangeValue = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -23,7 +24,7 @@ const DatePicker = ({ placeholder, handleSelect }: DatePickerProps) => {
       placeholder={placeholder}
       value={value}
       onChange={handleChangeValue}
-      pattern="[0-9/]{10}"
+      disabled={disabled}
     />
   )
 }

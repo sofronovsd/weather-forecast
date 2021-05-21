@@ -1,14 +1,16 @@
 import React from 'react'
+import classNames from 'classnames'
 
 import './Card.scss'
 
 type CardProps = {
-  title?: string
+  className?: string
   children?: JSX.Element[] | JSX.Element
 }
 
-const Card = ({ children }: CardProps) => {
-  return <article className="card">{children}</article>
+const Card = ({ children, className }: CardProps) => {
+  const cardStyles = classNames(className, 'card')
+  return <article className={cardStyles}>{children}</article>
 }
 
 export default Card
